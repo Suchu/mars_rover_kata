@@ -36,4 +36,14 @@ public class Direction {
     public int hashCode() {
         return Objects.hash(direction);
     }
+
+    public Direction turnLeft() {
+        return switch (direction) {
+            case "W" -> SOUTH;
+            case "S" -> EAST;
+            case "E" -> NORTH;
+            case "N" -> WEST;
+            default -> throw new RuntimeException("Wrong Direction!");
+        };
+    }
 }

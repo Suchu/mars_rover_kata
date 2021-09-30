@@ -19,4 +19,15 @@ public class DirectionTest {
 
         assertThat(actualPoint, equalTo(expectedPoint));
     }
+
+    @ParameterizedTest
+    @CsvSource(
+            {"W, S", "S, E", "E, N", "N, W"})
+    public void turnLeftFollowingCompassPoints(String startingPoint, String finalPoint) {
+        Direction point = new Direction(startingPoint);
+        Direction expectedPoint = new Direction(finalPoint);
+        Direction actualPoint = point.turnLeft();
+
+        assertThat(actualPoint, equalTo(expectedPoint));
+    }
 }
