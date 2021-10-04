@@ -13,4 +13,9 @@ public class Plateau {
     public boolean isInsideUpperXMax(int xCoordinate) {
         return xCoordinate <= xMax;
     }
+
+    public boolean isInsideUpperYMax(int yCoordinate) {
+        return yCoordinate <= yMax;
+    }
+
 }
