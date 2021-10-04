@@ -1,10 +1,11 @@
 package com.sulo.marsrover;
 
 public class MarsRover {
+    private Plateau plateau;
     private Coordinate coordinate;
     private Direction direction;
 
-    protected MarsRover(Coordinate coordinate, Direction direction) {
+    protected MarsRover(Plateau plateau, Coordinate coordinate, Direction direction) {
         this.coordinate = coordinate;
         this.direction = direction;
     }
