@@ -2,9 +2,9 @@ package com.sulo.marsrover;
 
 public class Plateau {
 
-    public final int LOWER_LIMIT = 1;
-    private int xMax;
-    private int yMax;
+    public static final int LOWER_LIMIT = 0;
+    private final int xMax;
+    private final int yMax;
 
     public Plateau(int xMax, int yMax) {
         this.xMax = xMax;

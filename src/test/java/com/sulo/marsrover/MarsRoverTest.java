@@ -87,5 +87,34 @@ public class MarsRoverTest {
         MarsRover rover = new MarsRover(plateau, coordinate, Direction.SOUTH);
         rover.move("M");
         assertThat(rover.isPosition(1, 1), is(true));
+
+    }
+
+    @Test
+    public void returnTrueIfForwardToWestIsCalledOnEdges() {
+        MarsRover rover = new MarsRover(plateau, new Coordinate(Plateau.LOWER_LIMIT, defaultCoordinateY), Direction.WEST);
+        rover.move("M");
+        assertThat(rover.isPosition(plateau.getXMax(), 2), is(true));
+    }
+
+    @Test
+    public void returnTrueIfForwardToNorthIsCalledOnEdges() {
+        MarsRover rover = new MarsRover(plateau, new Coordinate(defaultCoordinateX, plateau.getYMax()), Direction.NORTH);
+        rover.move("M");
+        assertThat(rover.isPosition(1, Plateau.LOWER_LIMIT), is(true));
+    }
+
+    @Test
+    public void returnTrueIfForwardToEastIsCalledOnEdges() {
+        MarsRover rover = new MarsRover(plateau, new Coordinate(plateau.getXMax(), defaultCoordinateY), Direction.EAST);
+        rover.move("M");
+        assertThat(rover.isPosition(Plateau.LOWER_LIMIT, 2), is(true));
+    }
+
+    @Test
+    public void returnTrueIfForwardToSouthIsCalledOnEdges() {
+        MarsRover rover = new MarsRover(plateau, new Coordinate(defaultCoordinateX, Plateau.LOWER_LIMIT), Direction.SOUTH);
+        rover.move("M");
+        assertThat(rover.isPosition(1, plateau.getYMax()), is(true));
     }
 }

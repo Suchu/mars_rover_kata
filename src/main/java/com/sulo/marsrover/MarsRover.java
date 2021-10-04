@@ -1,11 +1,12 @@
 package com.sulo.marsrover;
 
 public class MarsRover {
-    private Plateau plateau;
     private final Coordinate coordinate;
+    private final Plateau plateau;
     private Direction direction;
 
     protected MarsRover(Plateau plateau, Coordinate coordinate, Direction direction) {
+        this.plateau = plateau;
         this.coordinate = coordinate;
         this.direction = direction;
     }
@@ -33,6 +34,7 @@ public class MarsRover {
             turnRight();
         } else if (moveCommand.equalsIgnoreCase("M")) {
             moveForward();
+            wrapPosition();
         }
     }
 
@@ -45,6 +47,21 @@ public class MarsRover {
             this.coordinate.xCoordinate += 1;
         } else {
             this.coordinate.yCoordinate -= 1;
+        }
+    }
+
+    private void wrapPosition() {
+        if (!plateau.isInsideLowerXMax(coordinate.xCoordinate)) {
+            this.coordinate.xCoordinate = plateau.getXMax();
+        }
+        if (!plateau.isInsideUpperYMax(coordinate.yCoordinate)) {
+            this.coordinate.yCoordinate = Plateau.LOWER_LIMIT;
+        }
+        if (!plateau.isInsideUpperXMax(coordinate.xCoordinate)) {
+            this.coordinate.xCoordinate = Plateau.LOWER_LIMIT;
+        }
+        if (!plateau.isInsideLowerYMax(coordinate.yCoordinate)) {
+            this.coordinate.yCoordinate = plateau.getYMax();
         }
     }
 }

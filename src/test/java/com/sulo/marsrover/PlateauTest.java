@@ -40,7 +40,7 @@ public class PlateauTest {
     @Test
     public void returnFalseIfNotInsideLowerXMax() {
         Plateau plateau = new Plateau(5, 5);
-        assertThat(plateau.isInsideLowerXMax(0), is(false));
+        assertThat(plateau.isInsideLowerXMax(-1), is(false));
     }
 
     @Test
@@ -52,6 +52,6 @@ public class PlateauTest {
     @Test
     public void returnFalseIfNotInsideLowerYMax() {
         Plateau plateau = new Plateau(5, 5);
-        assertThat(plateau.isInsideLowerYMax(0), is(false));
+        assertThat(plateau.isInsideLowerYMax(-1), is(false));
     }
 }
