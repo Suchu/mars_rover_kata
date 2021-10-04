@@ -60,4 +60,6 @@ public class MarsRoverTest {
         rover.move("R");
         assertThat(rover.isDirection(Direction.SOUTH), is(true));
     }
+
+
 }

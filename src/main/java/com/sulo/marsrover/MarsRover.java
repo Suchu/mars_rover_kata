@@ -26,25 +26,11 @@ public class MarsRover {
         direction = direction.turnRight();
     }
 
-    private void moveForward() {
-        if (direction == Direction.WEST)  {
-            this.coordinate.xCoordinate -= 1;
-        } else if (direction == Direction.EAST) {
-            this.coordinate.xCoordinate += 1;
-        } else if (direction == Direction.NORTH) {
-            this.coordinate.yCoordinate += 1;
-        }else {
-            this.coordinate.yCoordinate -= 1;
-        }
-    }
-
     protected void  move(String moveCommand) {
         if (moveCommand.equalsIgnoreCase("L")) {
             turnLeft();
         } else if (moveCommand.equalsIgnoreCase("R")) {
             turnRight();
-        } else {
-            moveForward();
         }
     }
 }
