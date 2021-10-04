@@ -9,15 +9,15 @@ import static org.hamcrest.CoreMatchers.*;
 
 public class MarsRoverTest {
 
-    private final int defaultCoordinateX = 5;
-    private final int defaultCoordinateY = 5;
+    private final int defaultCoordinateX = 1;
+    private final int defaultCoordinateY = 2;
 
     private final Plateau plateau = new Plateau(5, 5);
     private final Coordinate coordinate = new Coordinate(defaultCoordinateX, defaultCoordinateY);
 
     @ParameterizedTest
     @CsvSource(
-            {"0, 0", "1, 2", "2, 3", "3, 2", "3, 3"})
+            {"0, 0", "2, 2", "2, 3", "3, 2", "5, 5"})
     public void returnFalseIfPositionIsDifferent(int xPosition, int yPosition) {
         MarsRover rover = new MarsRover(plateau, coordinate, Direction.NORTH);
         assertThat(rover.isPosition(xPosition, yPosition), is(false));
@@ -26,7 +26,7 @@ public class MarsRoverTest {
     @Test
     public void returnTrueIfPositionIsTheSame() {
         MarsRover rover = new MarsRover(plateau, coordinate, Direction.NORTH);
-        assertThat(rover.isPosition(5, 5), is(true));
+        assertThat(rover.isPosition(1, 2), is(true));
     }
 
     @Test
@@ -61,5 +61,31 @@ public class MarsRoverTest {
         assertThat(rover.isDirection(Direction.SOUTH), is(true));
     }
 
+    @Test
+    public void returnTrueIfForwardToWestChangeXCoordinate() {
+        MarsRover rover = new MarsRover(plateau, coordinate, Direction.WEST);
+        rover.move("M");
+        assertThat(rover.isPosition(0, 2), is(true));
+    }
 
+    @Test
+    public void returnTrueIfForwardToNorthChangeXCoordinate() {
+        MarsRover rover = new MarsRover(plateau, coordinate, Direction.NORTH);
+        rover.move("M");
+        assertThat(rover.isPosition(1, 3), is(true));
+    }
+
+    @Test
+    public void returnTrueIfForwardToEastChangeXCoordinate() {
+        MarsRover rover = new MarsRover(plateau, coordinate, Direction.EAST);
+        rover.move("M");
+        assertThat(rover.isPosition(2, 2), is(true));
+    }
+
+    @Test
+    public void returnTrueIfForwardToSouthChangeXCoordinate() {
+        MarsRover rover = new MarsRover(plateau, coordinate, Direction.SOUTH);
+        rover.move("M");
+        assertThat(rover.isPosition(1, 1), is(true));
+    }
 }
