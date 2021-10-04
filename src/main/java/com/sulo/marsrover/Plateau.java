@@ -26,4 +26,12 @@ public class Plateau {
     public boolean isInsideLowerYMax(int yCoordinate) {
         return yCoordinate >= LOWER_LIMIT;
     }
+
+    public int getXMax() {
+        return xMax;
+    }
+
+    public int getYMax() {
+        return yMax;
+    }
 }

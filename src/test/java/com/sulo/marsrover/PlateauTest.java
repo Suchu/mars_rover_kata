@@ -54,7 +54,4 @@ public class PlateauTest {
         Plateau plateau = new Plateau(5, 5);
         assertThat(plateau.isInsideLowerYMax(0), is(false));
     }
-
-
-
 }
