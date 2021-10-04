@@ -2,6 +2,7 @@ package com.sulo.marsrover;
 
 public class Plateau {
 
+    public final int LOWER_LIMIT = 1;
     private int xMax;
     private int yMax;
 
@@ -18,4 +19,7 @@ public class Plateau {
         return yCoordinate <= yMax;
     }
 
+    public boolean isInsideLowerXMax(int xCoordinate) {
+        return xCoordinate >= LOWER_LIMIT;
+    }
 }
