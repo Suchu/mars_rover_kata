@@ -22,4 +22,8 @@ public class Plateau {
     public boolean isInsideLowerXMax(int xCoordinate) {
         return xCoordinate >= LOWER_LIMIT;
     }
+
+    public boolean isInsideLowerYMax(int yCoordinate) {
+        return yCoordinate >= LOWER_LIMIT;
+    }
 }

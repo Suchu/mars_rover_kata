@@ -43,6 +43,18 @@ public class PlateauTest {
         assertThat(plateau.isInsideLowerXMax(0), is(false));
     }
 
+    @Test
+    public void returnTrueIfInsideLowerYMax() {
+        Plateau plateau = new Plateau(5, 5);
+        assertThat(plateau.isInsideLowerYMax(1), is(true));
+    }
+
+    @Test
+    public void returnFalseIfNotInsideLowerYMax() {
+        Plateau plateau = new Plateau(5, 5);
+        assertThat(plateau.isInsideLowerYMax(0), is(false));
+    }
+
 
 
 }
